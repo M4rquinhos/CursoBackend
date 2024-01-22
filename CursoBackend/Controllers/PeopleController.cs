@@ -16,8 +16,8 @@ namespace CursoBackend.Controllers
         public static List<People> People = new List<People>
         {
             new People(){Id = 1, Name = "Marco", Birthdate = new DateTime(1999, 09, 30)},
-            new People(){Id = 1, Name = "David", Birthdate = new DateTime(1999, 07, 11)},
-            new People(){Id = 1, Name = "Lolo", Birthdate = new DateTime(1999, 05, 30)},
+            new People(){Id = 2, Name = "David", Birthdate = new DateTime(1999, 07, 11)},
+            new People(){Id = 3, Name = "Lolo", Birthdate = new DateTime(1999, 05, 30)},
         };
     }
 
