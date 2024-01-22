@@ -14,9 +14,13 @@ namespace CursoBackend.Controllers
         }
 
         [HttpPost]
-        public decimal Add(decimal a, decimal b)
+        public decimal Add(NUmbers numbers, [FromHeader] string Host, [FromHeader(Name = "Content-Length")] string ContentLength,
+            [FromHeader(Name = "X-Some")]string Some)
         {
-            return a - b;
+            Console.WriteLine(Host);
+            Console.WriteLine(ContentLength);
+            Console.WriteLine(Some);
+            return numbers.A - numbers.B;
         }
 
         [HttpPut]
@@ -30,5 +34,11 @@ namespace CursoBackend.Controllers
         {
             return a / b;
         }
+    }
+
+    public class NUmbers
+    {
+        public decimal A { get; set; }
+        public decimal B { get; set; }
     }
 }
