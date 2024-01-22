@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using CursoBackend.Services;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CursoBackend.Controllers
@@ -7,6 +8,14 @@ namespace CursoBackend.Controllers
     [ApiController]
     public class PeopleController : ControllerBase
     {
+
+        private IPeopleService _peopleService;
+
+        public PeopleController()
+        {
+            _peopleService = new PeopleServices();
+        }
+
         [HttpGet("all")]
         public List<People> GetPeople() => Repository.People;
 
@@ -29,7 +38,7 @@ namespace CursoBackend.Controllers
         [HttpPost]
         public IActionResult Add(People people)
         {
-            if (string.IsNullOrEmpty(people.Name))
+            if (!_peopleService.Validate(people))
             {
                 return BadRequest();
             }
