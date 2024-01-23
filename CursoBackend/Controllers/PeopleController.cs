@@ -11,9 +11,9 @@ namespace CursoBackend.Controllers
 
         private IPeopleService _peopleService;
 
-        public PeopleController()
+        public PeopleController(IPeopleService peopleService)
         {
-            _peopleService = new PeopleServices();
+            _peopleService = peopleService;
         }
 
         [HttpGet("all")]
