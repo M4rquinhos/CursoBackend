@@ -11,7 +11,14 @@ namespace CursoBackend.Controllers
 
         private IPeopleService _peopleService;
 
-        public PeopleController(IPeopleService peopleService)
+        //Inyeccion de dependencias comun
+        //public PeopleController(IPeopleService peopleService)
+        //{
+        //    _peopleService = peopleService;
+        //}
+
+        //inyeccion de dependencias por clave
+        public PeopleController([FromKeyedServices("peopleservice")]IPeopleService peopleService)
         {
             _peopleService = peopleService;
         }

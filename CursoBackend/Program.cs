@@ -3,7 +3,8 @@ using CursoBackend.Services;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddSingleton<IPeopleService, PeopleServices>();
+//builder.Services.AddSingleton<IPeopleService, PeopleServices>(); //Inyeccion de dependencias "comun"
+builder.Services.AddKeyedSingleton<IPeopleService, PeopleServices>("peopleservice"); //iyeccion de dependencias por clave (solo .net 8)
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
